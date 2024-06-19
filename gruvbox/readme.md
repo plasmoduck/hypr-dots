@@ -1,1 +1,2 @@
-Gruvbox hyprland config
+Gruvbox hyprland rice
+![gruvbox](screenshot.png)
