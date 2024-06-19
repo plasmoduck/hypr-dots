@@ -3,6 +3,9 @@
 
 ## Dependencies
 FantasqueSansMono Nerd Font
+
 Waybar
+
 Hyprland & its ecosystem
+
 Kitty
