@@ -22,10 +22,10 @@
         "custom/color",
         "custom/screenshot",
        // "idle_inhibitor",
-        "custom/notification",
+        //"custom/notification",
         //"tray",
-        "mpd"
-        //"custom/media"
+        //"mpd"
+        "custom/media"
     ],
     "modules-center": [
         "custom/weather",
@@ -34,13 +34,14 @@
     ],
     "modules-right": [
         //"tray",
-        "battery",
+        //"battery",
         "temperature",
         "custom/storage",
         "cpu",
         "memory",
         "network",
         "wireplumber",
+        "custom/notification",
         "custom/power"
     ],
 
@@ -62,17 +63,16 @@
         "states": {
             "good": 95,
             "warning": 30,
-            "critical": 15
+            "critical": 5
         },
         "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-charging": "<span foreground='#689D6A'></span> {capacity}%",
+        "format-plugged": "<span foreground='#282828'></span> {capacity}%",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "<span foreground='#FB4934'></span/",
+            "<span foreground='#FC802D'></span>",
+            "<span foreground='#FABD2F'></span>",
+            "<span foreground='#B8BB26'></span>"
         ]
     },
 
@@ -84,7 +84,12 @@
         // "format-critical": " {temperatureC}°C",
         "format-critical": "  {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
-        "format-icons": [""],
+        "format-icons": [
+          "<span foreground='#83A598'></span>",
+          "<span foreground='#FABD2F'></span>",
+          "<span foreground='#FC802D'></span>",
+          "<span foreground='#FB4934'></span>"
+        ],
         "max-length": 7,
         "min-length": 7,
         "on-click": "xsensors"
@@ -93,17 +98,17 @@
     "memory": {
         "interval": 30,
        /* "format": "  {used:0.2f} / {total:0.0f} GB",*/
-       "format": "  {used}GB",
+       "format": "<span foreground='#D3869B'> </span> {used}GB",
        "on-click": "kitty -e btm"
     },
 
     "network": {
-        "format-wifi": "  {essid}",
+        "format-wifi": "<span foreground='#83A598'> </span> {essid}",
         //"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-ethernet": " {ifname}",
         "format-linked": "{ifname} (No IP) ",
         "format": "",
-        "format-disconnected": " Disconnected",
+        "format-disconnected": "<span foreground='#FB4934'>󰖪 </span>Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         //"on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
         "on-click":"sleep 0.1 && bash ~/.config/rofi/rofi-wifi-menu.sh",
@@ -114,7 +119,7 @@
     },
     
     "custom/storage": {
-        "format": "  {}",
+        "format": "<span foreground='#FABD2F'> </span> {percentage}%",
         "format-alt": "  {percentage}%",
         "format-alt-click": "click-right",
         "return-type": "json",
@@ -148,13 +153,14 @@
         "format-alt": "{alt}: {}",
         "format-alt-click": "click-right",
         "interval": 7200,
-        "exec": "curl -s 'https://wttr.in/?format=1'",
+        "tooltip-format": "Liverpool, NSW",
+        "exec": "curl -s 'https://wttr.in/?format=1' | tr -s ' '",
         //"return-type": "json",
         //"exec": "~/.config/waybar/modules/weather.sh",
         "exec-if": "ping wttr.in -c1"
     },
     "custom/pacman": {
-        "format": "<span foreground='#D79921'>󰮯</span> {}",
+        "format": "<span foreground='#FABD2F'>󰮯</span>  {}",
         "interval": 3600,                     // every hour
         "exec": "checkupdates | wc -l",       // # of updates
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
@@ -167,28 +173,29 @@
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 50,
+        "max-length": 50,      
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+        "spotify_player": "<span foreground='#8EC07C'></span> ",
+        "default": "<span foreground='#D3869B'></span> "
         },
-        "on-click":"playerctl --player=spotify play-pause",
-        "on-scroll-up":"playerctl --player=spotify next",
-        "on-scroll-down":"playerctl --player=spotify previous",
+        "on-click-right":"playerctl --player=spotify_player play-pause",
+        "on-click":"playerctl --player=mpd play-pause",
+        "on-scroll-up":"playerctl --player=mpd previous",
+        "on-scroll-down":"playerctl --player=mpd next",
         "escape": true,
-        "exec-if": "pgrep spotify",
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
+        "exec-if": "pgrep spotify_player",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder                    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name                                                                                                               
+},
 
     "custom/power": {
         "format": "",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "Power",
         "on-click": "sleep 0.1 && bash $HOME/.config/rofi/powermenu/type-4/powermenu.sh"
     },
 
     "clock#date": {
-        "format": "<span foreground='#83A598'></span>  {:%H:%M  <span foreground='#83A598'></span> %e %b}", // Icon: calendar-alt
+        "format": "<span foreground='#83A598'></span>  {:%H:%M  <span foreground='#83A598'></span>  %e %b}", // Icon: calendar-alt
         //"tooltip-format": "{:%I:%M %p  %A %b %d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
@@ -222,7 +229,7 @@
     "cpu": {
         "interval": 1,
 /*        "format": " {}%", // Icon: microchip*/
-        "format": "  {usage}%",
+        "format": "<span foreground='#8EC07C'> </span> {usage}%",
         "max-length": 10,
         "min-length": 8
     },
@@ -235,7 +242,7 @@
         "format-disconnected": "",
         "on-click": "mpc --quiet toggle",
         "on-click-right": "kitty mpc update; mpc ls | mpc add",
-        "on-click-middle": " -e ncmpcpp",
+        "on-click-middle": "kitty -e ncmpcpp",
         "on-scroll-up": "mpc --quiet prev",
         "on-scroll-down": "mpc --quiet next",
         "smooth-scrolling-threshold": 1,
@@ -314,9 +321,9 @@
         //on-scroll-down: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04+";
         //on-scroll-up: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04-";
         "format": "{icon} {volume}%",
-        "format-muted": " ",
+        "format-muted": "<span foreground='#FB4934'> </span>Mute",
         "format-source": "",
-        "format-source-muted": "",
+        "format-source-muted": " ",
         //"format-muted": "<span foreground='#fab387'> </span>",
         //"format-icons": [ "<span foreground='#fab387'></span>" ]
         "format-icons": {
@@ -326,7 +333,7 @@
             "phone": " ",
             "portable": " ",
             "car": " ",
-            "default": [" ", " ", " "]
+            "default": ["<span foreground='#B8BB26'> </span>", "<span foreground='#FABD2F'> </span>", "<span foreground='#FC802D'> </span>"]
         },
     },
 
@@ -335,7 +342,7 @@
         "spacing": 5
     },
     "custom/notification": {
-    "format":"",
+    "format":"<span foreground='#FABD2F'></span>",
     "on-click": "sleep 0.1 && swaync-client -rs && swaync-client -t",
     "tooltip-format": "Notifications"
     }
