@@ -19,13 +19,12 @@
     "modules-left": [
         "custom/rofi",
         "hyprland/workspaces",
-        "custom/color",
-        "custom/screenshot",
-       // "idle_inhibitor",
-        //"custom/notification",
-        //"tray",
+       // "custom/color",
+        "tray",
         //"mpd"
-        "custom/media"
+        "custom/media",
+        "custom/screenshot",
+        "idle_inhibitor"
     ],
     "modules-center": [
         "custom/weather",
@@ -34,12 +33,13 @@
     ],
     "modules-right": [
         //"tray",
-        //"battery",
+        "battery",
         "temperature",
         "custom/storage",
         "cpu",
         "memory",
         "network",
+        "backlight",
         "wireplumber",
         "custom/notification",
         "custom/power"
@@ -66,15 +66,26 @@
             "critical": 5
         },
         "format": "{icon}  {capacity}%",
-        "format-charging": "<span foreground='#689D6A'></span> {capacity}%",
-        "format-plugged": "<span foreground='#282828'></span> {capacity}%",
-        "format-icons": [
+        /*"format-charging": "<span foreground='#B8BB26'></span> {capacity}%",*/
+        "format-plugged": "<span foreground='#3C3836'></span> {capacity}%",
+        "format-icons": {
+          "default": [
             "<span foreground='#FB4934'></span/",
-            "<span foreground='#FC802D'></span>",
-            "<span foreground='#FABD2F'></span>",
+            "<span foreground='#EA6631'></span>",
+            "<span foreground='#DA822D'></span>",
+            "<span foreground='#C99F2A'></span>",
             "<span foreground='#B8BB26'></span>"
+        ],
+        "format-charging": [
+          "", 
+          "", 
+          "", 
+          "", 
+          ""
         ]
+      }
     },
+
 
     "temperature": {
         // "thermal-zone": 1,
@@ -86,8 +97,8 @@
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
           "<span foreground='#83A598'></span>",
-          "<span foreground='#FABD2F'></span>",
-          "<span foreground='#FC802D'></span>",
+          "<span foreground='#D3869B'></span>",
+          "<span foreground='#FB8332'></span>",
           "<span foreground='#FB4934'></span>"
         ],
         "max-length": 7,
@@ -118,13 +129,28 @@
         "interval": 10
     },
     
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      "<span foreground='#458588'>󰃞</span>",
+      "<span foreground='#D79921'>󰃟</span>",
+      "<span foreground='#FC802D'>󰃠</span>"
+    ]
+},
+
     "custom/storage": {
-        "format": "<span foreground='#FABD2F'> </span> {percentage}%",
+        "format": "{icon}  {percentage}%",
         "format-alt": "  {percentage}%",
         "format-alt-click": "click-right",
         "return-type": "json",
         "interval": 60,
-        "exec": "~/.config/waybar/modules/storage.sh"
+        "exec": "~/.config/waybar/modules/storage.sh",
+        "format-icons" : [
+          "<span foreground='#83A598'></span>",
+          "<span foreground='#FABD2F'></span",
+          "<span foreground='#FB4934'></span>"
+        ]
     },
 
     "custom/screenshot": {
@@ -154,7 +180,7 @@
         "format-alt-click": "click-right",
         "interval": 7200,
         "tooltip-format": "Liverpool, NSW",
-        "exec": "curl -s 'https://wttr.in/?format=1' | tr -s ' '",
+        "exec": "curl -s 'https://wttr.in/Liverpool+NSW?format=1' | tr -s ' '",
         //"return-type": "json",
         //"exec": "~/.config/waybar/modules/weather.sh",
         "exec-if": "ping wttr.in -c1"
@@ -188,7 +214,7 @@
 },
 
     "custom/power": {
-        "format": "",
+        "format": "⏻",
         "tooltip": true,
         "tooltip-format": "Power",
         "on-click": "sleep 0.1 && bash $HOME/.config/rofi/powermenu/type-4/powermenu.sh"
@@ -333,7 +359,13 @@
             "phone": " ",
             "portable": " ",
             "car": " ",
-            "default": ["<span foreground='#B8BB26'> </span>", "<span foreground='#FABD2F'> </span>", "<span foreground='#FC802D'> </span>"]
+            "default": [
+              "<span foreground='#B8BB26'> </span>",
+              "<span foreground='#C99F2A'> </span>", 
+              "<span foreground='#DA822D'> </span>",
+              "<span foreground='#EA6631'> </span>",
+              "<span foreground='#FB4934'> </span>"
+            ]
         },
     },
 
@@ -342,7 +374,7 @@
         "spacing": 5
     },
     "custom/notification": {
-    "format":"<span foreground='#FABD2F'></span>",
+    "format":"",
     "on-click": "sleep 0.1 && swaync-client -rs && swaync-client -t",
     "tooltip-format": "Notifications"
     }

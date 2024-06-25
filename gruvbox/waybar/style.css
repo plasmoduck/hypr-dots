@@ -2,7 +2,7 @@
 * {
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: "FantasqueSansM Nerd Font";
-  font-size: 9.5pt;
+  font-size: 9pt;
   font-weight: 900;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -103,8 +103,7 @@ window#waybar.hidden {
 #custom-rofi,
 #custom-notification {
   padding: 0px 15px;
-  color: #EBDBB2;
-  /* color: #bf616a; */
+  color: #D79921;
   border-radius: 5px;
   background-color: #3C3836;
 }
@@ -150,6 +149,10 @@ tooltip,
     background: rgba(59, 66, 68, 0.8);
 }
 
+#custom-weather {
+  color: #FBF1C7;
+}
+
 #custom-weather.severe {
   color: #eb937d;
 }
@@ -182,7 +185,7 @@ tooltip,
 }
 
 #custom-weather.default {
-  color: #dbd9d8;
+  color: #FBF1C7;
   background-color: #3C3836;
 }
 
@@ -223,6 +226,18 @@ tooltip,
 #battery.plugged {
   color: #282828;
   background-color: #B8BB26; 
+  animation-name: slide;
+  animation-duration: 5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slide {
+  to {
+    background-color: #3C3836;
+    color: #FBF1C7;
+  }
 }
 
 @keyframes blink {
@@ -319,17 +334,24 @@ label:focus {
 
 #custom-color {
   background-color: #3C3836;
+  color: #D79921;
   padding-left: 10px;
   padding-right: 15px;
   border-radius: 3px 
 }
 
+#backlight {
+  background-color: #3C3836;
+  color: #FBF1C7;
+}
+
 #idle_inhibitor {
   background-color: #3C3836;
+  color: #FBF1C7;
 }
 
 #idle_inhibitor.activated {
-  background-color: #ecf0f1;
+  background-color: #FBF1C7;
   color: #2d3436;
 }
 
@@ -364,7 +386,7 @@ color: #EBDBB2;
 }
 #custom-screenshot{
 background-color: #3C3836;
-color: #EBDBB2;
+color: #FBF1C7;
 padding-left: 10px;
 padding-right: 15px;
 
