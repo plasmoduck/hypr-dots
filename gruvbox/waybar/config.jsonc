@@ -23,8 +23,11 @@
         "tray",
         //"mpd"
         "custom/media",
-        "custom/screenshot",
-        "idle_inhibitor"
+        //"custom/screenshot",
+        //"idle_inhibitor"
+        "cpu",
+        "memory",
+        "custom/storage"
     ],
     "modules-center": [
         "custom/weather",
@@ -35,9 +38,9 @@
         //"tray",
         "battery",
         "temperature",
-        "custom/storage",
-        "cpu",
-        "memory",
+        //"custom/storage",
+        //"cpu",
+        //"memory",
         "network",
         "backlight",
         "wireplumber",
@@ -96,10 +99,10 @@
         "format-critical": "  {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
-          "<span foreground='#83A598'></span>",
-          "<span foreground='#D3869B'></span>",
-          "<span foreground='#FB8332'></span>",
-          "<span foreground='#FB4934'></span>"
+          "<span foreground='#8EC07C'></span>",
+          "<span foreground='#83A598'></span>",
+          "<span foreground='#D3869B'></span>"
+          /*"<span foreground='#FB4934'></span>"*/
         ],
         "max-length": 7,
         "min-length": 7,
@@ -109,12 +112,12 @@
     "memory": {
         "interval": 30,
        /* "format": "  {used:0.2f} / {total:0.0f} GB",*/
-       "format": "<span foreground='#D3869B'> </span> {used}GB",
+       "format": "<span foreground='#B8BB26'> </span> {used}GB",
        "on-click": "kitty -e btm"
     },
 
     "network": {
-        "format-wifi": "<span foreground='#83A598'> </span> {essid}",
+        "format-wifi": "<span foreground='#D3869B'> </span> {essid}",
         //"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-ethernet": " {ifname}",
         "format-linked": "{ifname} (No IP) ",
@@ -147,7 +150,7 @@
         "interval": 60,
         "exec": "~/.config/waybar/modules/storage.sh",
         "format-icons" : [
-          "<span foreground='#83A598'></span>",
+          "<span foreground='#FABD2F'></span>",
           "<span foreground='#FABD2F'></span",
           "<span foreground='#FB4934'></span>"
         ]
@@ -180,7 +183,7 @@
         "format-alt-click": "click-right",
         "interval": 7200,
         "tooltip-format": "Liverpool, NSW",
-        "exec": "curl -s 'https://wttr.in/Liverpool+NSW?format=1' | tr -s ' '",
+        "exec": "curl -s 'https://wttr.in/?format=1' | tr -s ' '",
         //"return-type": "json",
         //"exec": "~/.config/waybar/modules/weather.sh",
         "exec-if": "ping wttr.in -c1"
@@ -221,7 +224,7 @@
     },
 
     "clock#date": {
-        "format": "<span foreground='#83A598'></span>  {:%H:%M  <span foreground='#83A598'></span>  %e %b}", // Icon: calendar-alt
+        "format": "<span foreground='#8EC07C'></span>  {:%H:%M  <span foreground='#8EC07C'></span>  %e %b}", // Icon: calendar-alt
         //"tooltip-format": "{:%I:%M %p  %A %b %d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
@@ -255,7 +258,7 @@
     "cpu": {
         "interval": 1,
 /*        "format": " {}%", // Icon: microchip*/
-        "format": "<span foreground='#8EC07C'> </span> {usage}%",
+        "format": "<span foreground='#FB4934'> </span> {usage}%",
         "max-length": 10,
         "min-length": 8
     },
