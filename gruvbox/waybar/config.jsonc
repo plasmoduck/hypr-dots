@@ -19,9 +19,7 @@
     "modules-left": [
         "custom/rofi",
         "hyprland/workspaces",
-       // "custom/color",
-        "tray",
-        //"mpd"
+        //"tray",
         "custom/media",
         //"custom/screenshot",
         //"idle_inhibitor"
@@ -35,12 +33,8 @@
         "custom/pacman"
     ],
     "modules-right": [
-        //"tray",
         "battery",
         "temperature",
-        //"custom/storage",
-        //"cpu",
-        //"memory",
         "network",
         "backlight",
         "wireplumber",
@@ -182,10 +176,8 @@
         "format-alt": "{alt}: {}",
         "format-alt-click": "click-right",
         "interval": 7200,
-        "tooltip-format": "Liverpool, NSW",
+        "tooltip-format": "Outdoor temperature",
         "exec": "curl -s 'https://wttr.in/?format=1' | tr -s ' '",
-        //"return-type": "json",
-        //"exec": "~/.config/waybar/modules/weather.sh",
         "exec-if": "ping wttr.in -c1"
     },
     "custom/pacman": {
@@ -224,8 +216,7 @@
     },
 
     "clock#date": {
-        "format": "<span foreground='#8EC07C'></span>  {:%H:%M  <span foreground='#8EC07C'></span>  %e %b}", // Icon: calendar-alt
-        //"tooltip-format": "{:%I:%M %p  %A %b %d}",
+        "format": "<span foreground='#8EC07C'></span>  {:%H:%M  <span foreground='#8EC07C'></span>  %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
     },

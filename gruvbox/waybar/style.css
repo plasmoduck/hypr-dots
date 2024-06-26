@@ -22,8 +22,7 @@
 
 /* The whole bar */
 #waybar { 
-   background-color: rgba(40, 40, 40, 1);
-    /*color: @light;*/
+    background-color: rgba(40, 40, 40, 1);
     color: #A89984;
     transition-property: background-color;
     transition-duration: 0.5s;
@@ -65,7 +64,7 @@ window#waybar.hidden {
   /* border-radius: 20px; */ 
   /* padding-left: 10px; */
   /* padding-right: 10px; */
-  color: #A89984;
+  color: #B8BB26;
 }
 
 /* Each module */
@@ -415,5 +414,3 @@ padding-left: 10px;                                                             
 color: #8ccf7e;
 padding-left: 10px;                                                                               padding-right: 15px
 }
-
-
