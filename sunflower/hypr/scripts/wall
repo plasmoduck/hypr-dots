@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get random image file name
+IMG_NAME=$(ls /home/ananas/.config/hypr/wallpapers | shuf -n 1)
+# full path to that random image file
+IMG_PATH=/home/ananas/.config/hypr/wallpapers/$IMG_NAME
+# Command to change wallpaper
+WALL_NAME=$(basename "$IMG_NAME" | cut -d. -f1)
+
+
+if swww img $IMG_PATH --transition-type grow --transition-pos " 1791, 1056" --transition-duration 2
+then
+notify-send -h string:x-canonical-private-synchronous:sys-notify "Wallpaper set!" "<b>$WALL_NAME</b> is your wallpaper." -i "$IMG_PATH"
+fi
