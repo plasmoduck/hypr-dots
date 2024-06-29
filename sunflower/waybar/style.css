@@ -137,11 +137,12 @@ window#waybar.hidden {
   background-color: rgba(20, 27, 30, 0.0); 
   color:#83A598;
   font-size: 15px;  
+  background-color: #DFE7F2;
   background-image: url("/home/cjg/Pictures/sunflower.png");
-  background-size: 35px 35px;
+  background-size: 30px 30px;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 40px;
+  border-radius: 20px;
 }
 
 tooltip,
