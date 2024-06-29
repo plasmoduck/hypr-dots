@@ -1,4 +1,4 @@
-# Sunflow hyprland rice
+# Sunflower hyprland rice
 ![sunflower](screenshot.png)
 
 ## Dependencies
