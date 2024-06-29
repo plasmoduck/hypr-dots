@@ -3,8 +3,13 @@
 
 ## Dependencies
 ComicShannsMonoNF-Regular
+
 Waybar
+
 Hyprland ecosystem
+
 Swaync
+
 Kitty
+
 Fuzzel
