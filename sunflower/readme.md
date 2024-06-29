@@ -1,15 +1,15 @@
-# Sunflower hyprland rice
+# 🌻 Sunflower hyprland rice ❤️
 ![sunflower](screenshot.png)
 
 ## Dependencies
-ComicShannsMonoNF-Regular
+🔵 ComicShannsMonoNF-Regular
 
-Waybar
+🔵 Waybar
 
-Hyprland ecosystem
+🔵 Hyprland ecosystem
 
-Swaync
+🔵 Swaync
 
-Kitty
+🔵 Kitty
 
-Fuzzel
+🔵 Fuzzel
