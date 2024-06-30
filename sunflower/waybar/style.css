@@ -137,7 +137,7 @@ window#waybar.hidden {
   background-color: rgba(20, 27, 30, 0.0); 
   color:#83A598;
   font-size: 15px;  
-  background-color: #C7DEF4;
+  background-color: #EDD1CF;
   background-image: url("/home/cjg/Pictures/sunflower.png");
   background-size: 30px 30px;
   background-repeat: no-repeat;
@@ -221,7 +221,7 @@ tooltip,
 }
 
 #battery {
-   background-color: #C7DEF4;
+   background-color: #DFE7F2;
    color: #979898;
    border-radius: 20px;
 }
@@ -290,7 +290,7 @@ label:focus {
 }
 
 #network {
-  background-color: #C7DEF4;
+  background-color: #DFE7F2;
   color: #979898;
   border-radius: 20px;
 }
@@ -317,7 +317,7 @@ label:focus {
 }
 
 #temperature {
-  background-color: #C7DEF4;
+  background-color: #DFE7F2;
   color: #979898;
   border-radius: 20px; 
 }
@@ -348,7 +348,7 @@ label:focus {
 }
 
 #backlight {
-  background-color: #C7DEF4;
+  background-color: #DFE7F2;
   color: #979898;
   border-radius: 20px;
 }
@@ -389,7 +389,7 @@ label:focus {
 
 
 #wireplumber{
-background-color: #C7DEF4;
+background-color: #DFE7F2;
 color: #979898;
 border-radius: 20px;
 }
