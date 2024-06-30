@@ -63,13 +63,12 @@
             "critical": 5
         },
         "format": "{icon}  {capacity}%",
-        /*"format-charging": "<span foreground='#B8BB26'></span> {capacity}%",*/
-        "format-plugged": "<span foreground='#3C3836'></span> {capacity}%",
+        "format-plugged": "<span foreground='#979898'></span> {capacity}%",
         "format-icons": {
           "default": [
-            "<span foreground='#FAF6D9'></span/",
-            "<span foreground='#FAF6D9'></span>",
-            "<span foreground='#FAF6D9'></span>",
+            "<span foreground='#EDD1CF'></span/",
+            "<span foreground='#F1E8A2'></span>",
+            "<span foreground='#F1E8A2'></span>",
             "<span foreground='#FAF6D9'></span>",
             "<span foreground='#FAF6D9'></span>"
         ],
@@ -93,10 +92,10 @@
         "format-critical": "  {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
-          "<span foreground='#979898'></span>",
+          "<span foreground='#F9FAF4'></span>",
           "<span foreground='#FAF6D9'></span>",
-          "<span foreground='#EDD1CF'></span>"
-          /*"<span foreground='#FB4934'></span>"*/
+          "<span foreground='#EDD1CF'></span>",
+          "<span foreground='#EDD1CF'></span>"
         ],
         "max-length": 7,
         "min-length": 7,
@@ -130,9 +129,9 @@
     "device": "intel_backlight",
     "format": "{icon}  {percent}%",
     "format-icons": [
-      "<span foreground='#979898'>󰃞</span>",
+      "<span foreground='#F9FAF4'>󰃞</span>",
       "<span foreground='#FAF6D9'>󰃟</span>",
-      "<span foreground='#FAF6D9'>󰃠</span>"
+      "<span foreground='#EDD1CF'>󰃠</span>"
     ]
 },
 
@@ -354,11 +353,11 @@
             "portable": " ",
             "car": " ",
             "default": [
-              "<span foreground='#FAF6D9'> </span>",
-              "<span foreground='#FAF6D9'> </span>", 
+              "<span foreground='#F9FAF4'> </span>",
+              "<span foreground='#F9FAF4'> </span>", 
               "<span foreground='#FAF6D9'> </span>",
-              "<span foreground='#FAF6D9'> </span>",
-              "<span foreground='#FAF6D9'> </span>"
+              "<span foreground='#F1E8A2'> </span>",
+              "<span foreground='#EDD1CF'> </span>"
             ]
         },
     },
