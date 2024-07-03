@@ -17,7 +17,8 @@
 
     "modules-left": [
         "custom/rofi",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/media"
     ],
     "modules-center": [
         //"custom/weather",
