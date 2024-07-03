@@ -1,0 +1,416 @@
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "FantasqueSansM Nerd Font";
+  font-size: 9pt;
+  font-weight: 900;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  padding:0px;
+  margin:0px;
+  border-radius: 3px;
+  
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+/* The whole bar */
+#waybar { 
+    background-color: rgba(40, 40, 40, 1);
+    color: #A89984;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-top: 3px transparent;
+    border-radius: 3px;
+    margin: 0px 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0 0px;
+  color: #EBDBB2;
+  background-color: transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 3px transparent;
+  /* Avoid rounded borders under each workspace name */
+  border: none;
+  border-radius: 0;
+}
+
+#workspaces button.focused {
+  background-color: transparent;
+}
+#workspace button.hover {
+  background-color: transparent;
+}
+#workspaces button.active {
+  color: #B8BB26;
+}
+
+#workspaces button.urgent {
+  color: #FB4934;
+}
+
+#window {
+  /* border-radius: 20px; */ 
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  color: #B8BB26;
+}
+
+/* Each module */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#custom_screenshot,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#bluetooth,
+#custom-hyprPicker,
+#custom-power,
+#custom-spotify,
+#custom-weather,
+#custom-weather.severe,
+#custom-weather.sunnyDay,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.default,
+#custom-rofi,
+#custom-notification {
+  padding: 0px 15px;
+  color: #D79921;
+  border-radius: 5px;
+  background-color: #3C3836;
+}
+
+#window,
+#workspaces {
+  border-radius: 20px;
+  padding: 0px 10px;
+  background-color: #3C3836;
+}
+
+#cpu {
+  background-color: #3C3836;
+  color: #EBDBB2;
+  padding: 0px 0px;  
+}
+
+#memory {
+  background-color: #3C3836;
+  color: #EBDBB2;
+}
+
+#custom-power {
+  background-color: #3C3836;
+  color: #FB4934;
+}
+
+#custom-rofi {
+  background-color: rgba(20, 27, 30, 0.0); 
+  color:#83A598;
+  font-size: 15px;  
+  background-image: url("/home/cjg/Pictures/wayland-icon.png");
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+tooltip,
+#clock.calendar,
+#clock tooltip,
+#clock > tooltip,
+#clock {
+    background: rgba(59, 66, 68, 0.8);
+}
+
+#custom-weather {
+  color: #FBF1C7;
+}
+
+#custom-weather.severe {
+  color: #eb937d;
+}
+
+#custom-weather.sunnyDay {
+  color: #c2ca76;
+}
+
+#custom-weather.clearNight {
+  color: #cad3f5;
+  background-color: #3C3836;
+}
+
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight {
+  color: #c2ddda;
+  background-color: #3C3836;
+}
+
+#custom-weather.rainyDay,
+#custom-weather.rainyNight {
+  color: #5aaca5;
+  background-color: #3C3836;
+}
+
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight {
+  color: #d6e7e5;
+  background-color: #3C3836;
+}
+
+#custom-weather.default {
+  color: #FBF1C7;
+  background-color: #3C3836;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#pulseaudio {
+  color: #7d9bba;
+}
+
+#backlight {
+  /* color: #EBCB8B; */
+  color: #282828;
+ /*background-color: #8fbcbb*/
+   background-color: #2f88ff
+}
+
+#clock {
+  color: #EBDBB2;
+  background-color: #3C3836; 
+}
+
+#battery {
+  /*color: #c0caf5;*/
+   background-color: #3C3836;
+   color: #EBDBB2
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+  color: #282828;
+  background-color: #B8BB26; 
+  animation-name: slide;
+  animation-duration: 5s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slide {
+  to {
+    background-color: #3C3836;
+    color: #FBF1C7;
+  }
+}
+
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
+  }
+}
+
+#battery.critical:not(.charging) {
+  /*color: #f53c3c; */
+  background-color: #f53c3c;
+  color:#282828;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#custom-storage {
+  background-color: #3C3836;
+  color: #EBDBB2;
+  padding: 10px 10px;
+}
+
+#custom-pacman {
+  background-color: #3C3836;
+  color: #EBDBB2;
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+#bluetooth {
+  color: #707d9d;
+}
+
+#bluetooth.disconnected {
+  color: #f53c3c;
+}
+
+#network {
+  background-color: #3C3836;
+  color: #EBDBB2;
+}
+
+#network.disconnected {
+ background-color: #f53c3c;
+ color: #282828;
+}
+
+#custom-media {
+  /*background-color: #66cc99;*/
+  color: #EBDBB2;
+  min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+  color: #8ccf7e;
+  background-color: #3C3836;
+}
+
+#custom-media.custom-vlc {
+  background-color: #ffa000;
+}
+
+#temperature {
+ /*background-color: #f0932b;*/
+ /*  background-color: #fb358b*/
+  background-color: #3C3836;
+  color: #EBDBB2;
+}
+
+#temperature.critical {
+  background-color: #eb4d4b;
+}
+
+#tray {
+  background-color: #3C3836;
+}
+
+#tray > .passive {
+ -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#custom-color {
+  background-color: #3C3836;
+  color: #D79921;
+  padding-left: 10px;
+  padding-right: 15px;
+  border-radius: 3px 
+}
+
+#backlight {
+  background-color: #3C3836;
+  color: #FBF1C7;
+}
+
+#idle_inhibitor {
+  background-color: #3C3836;
+  color: #FBF1C7;
+}
+
+#idle_inhibitor.activated {
+  background-color: #FBF1C7;
+  color: #2d3436;
+}
+
+#language {
+  background: #00b093;
+  color: #740864;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 16px;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 16px;
+}
+
+#keyboard-state > label {
+  padding: 0 0px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+#wireplumber{
+background-color: #3C3836;
+color: #EBDBB2;
+}
+#custom-screenshot{
+background-color: #3C3836;
+color: #FBF1C7;
+padding-left: 10px;
+padding-right: 15px;
+
+}
+
+window#waybar .horizontal{
+padding:1px;
+}
+window#waybar {
+border-radius: 10px; 
+border: 2px solid #A89984;
+}
+#custom-thunar{
+/*background-color: #3C3836;*/
+color: #e5c76b;
+padding-left: 10px;
+padding-right: 15px;
+}
+#custom-firefox{
+/*background-color: #3C3836;*/
+color: #fab387;
+padding-left: 10px;                                                                               padding-right: 15px
+}
+#custom-spotify{
+/*background-color: #232a2d;*/
+color: #8ccf7e;
+padding-left: 10px;                                                                               padding-right: 15px
+}
