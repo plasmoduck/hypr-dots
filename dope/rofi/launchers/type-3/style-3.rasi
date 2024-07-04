@@ -19,7 +19,7 @@ configuration {
 @import                          "shared/colors.rasi"
 @import                          "shared/fonts.rasi"
 *{
-  bgcolor:                        #28282899;
+  bgcolor:                        #32302F99;
 }
 /*****----- Main Window -----*****/
 window {

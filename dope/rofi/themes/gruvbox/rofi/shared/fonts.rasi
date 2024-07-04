@@ -3,5 +3,5 @@
 /* Text Font */
 
 * {
-    font: "Iosevka 10";
+    font: "Terminess Nerd Font 12";
 }

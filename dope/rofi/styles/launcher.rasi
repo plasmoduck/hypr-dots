@@ -6,17 +6,17 @@
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 true;
-    display-drun:               "  Apps";
-    display-run:                "  Run";
-    display-filebrowser:        "  Files";
-    display-window:             "  Windows";
+    display-drun:               " Apps";
+    display-run:                " Run";
+    display-filebrowser:        " Files";
+    display-window:             " Windows";
 	drun-display-format:        "{name}";
 	window-format:              "{c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
+@import                          "~/.config/rofi/themes/gruvbox/rofi/shared/colors.rasi"
+@import                          "~/.config/rofi/themes/gruvbox/rofi/shared/fonts.rasi"
 
 * {
     border-colour:               var(selected);
@@ -111,7 +111,7 @@ textbox-prompt-colon {
     enabled:                     true;
     padding:                     0px;
     expand:                      false;
-    str:                         " ";
+    str:                         "";
     background-color:            inherit;
     text-color:                  inherit;
 }

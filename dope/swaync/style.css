@@ -42,7 +42,7 @@
 @define-color bg2       #665C54;
 
 * {
-    font-family: TerminessNF;
+    font-family: Terminess Nerd Font;
     /* font-weight: bolder; */
 }
 
@@ -279,7 +279,7 @@
 .widget-title>button {
     font-size: initial;
     font-weight: bold;
-    font-family: 'Symbols Nerd Font';
+    font-family: 'Terminess Nerd Font';
     color: @brgreen;
     text-shadow: none;
     background: @noti-bg;
