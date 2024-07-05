@@ -132,13 +132,11 @@ window#waybar.hidden {
 #custom-rofi {
   background-color: rgba(20, 27, 30, 0.0); 
   color:#EA6962;
-  font-size: 15px;  
+  font-size: 15px;
   /*background-image: url("/home/cjg/Pictures/spawn-logo.png");*/
   background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: center;
-  /*background-color: #665C54;
-  border-radius: 20px;*/
 }
 
 tooltip,
@@ -146,7 +144,7 @@ tooltip,
 #clock tooltip,
 #clock > tooltip,
 #clock {
-    background: rgba(59, 66, 68, 0.8);
+    background: rgba(50, 48, 47, 0.9);
 }
 
 #custom-weather {
@@ -221,7 +219,7 @@ tooltip,
   color: #32302F;
   background-color: #D7AF5F; 
   animation-name: slide;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
   animation-direction: alternate;

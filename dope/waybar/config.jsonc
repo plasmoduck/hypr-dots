@@ -54,7 +54,7 @@
         "states": {
             "good": 95,
             "warning": 25,
-            "critical": 5
+            "critical": 15
         },
         "format": "{icon}  {capacity}%",
         "format-plugged": "<span foreground='#32302F'></span> {capacity}%",
