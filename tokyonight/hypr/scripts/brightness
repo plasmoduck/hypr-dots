@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+iDIR="$HOME/.config/hypr/scripts/icons"
+
+# Get brightness
+get_backlight() {
+	echo $(brightnessctl -m | cut -d, -f4)
+}
+
+# Get icons
+get_icon() {
+	current=$(get_backlight | sed 's/%//')
+	if   [ "$current" -le "20" ]; then
+		icon="$iDIR/brightness-3.png"
+	elif [ "$current" -le "40" ]; then
+		icon="$iDIR/brightness-4.png"
+	elif [ "$current" -le "60" ]; then
+		icon="$iDIR/brightness-5.png"
+	elif [ "$current" -le "80" ]; then
+		icon="$iDIR/brightness-6.png"
+	else
+		icon="$iDIR/brightness-7.png"
+	fi
+}
+
+# Notify
+notify_user() {
+  notify-send -e -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" -t 555 -h int:value:"$current" "Brightness : $current%"
+}
+
+# Change brightness
+change_backlight() {
+	brightnessctl set "$1" && get_icon && notify_user
+}
+
+# Execute accordingly
+case "$1" in
+	"--get")
+		get_backlight
+		;;
+	"--inc")
+		change_backlight "+10%"
+		;;
+	"--dec")
+		change_backlight "10%-"
+		;;
+	*)
+		get_backlight
+		;;
+esac

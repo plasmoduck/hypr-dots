@@ -1,0 +1,369 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "reload_style_on_change": 1,
+    "position": "top",
+
+    "height": 54,
+
+    "margin-left": 15,
+    "margin-top": 15,
+    "margin-bottom": 0,
+    "margin-right": 15,
+
+    "spacing": 5, // Gaps between modules (4px)
+
+    "modules-left": [
+        "custom/rofi",
+        "hyprland/workspaces",
+        //"tray",
+        "custom/media"
+        //"custom/screenshot",
+        //"idle_inhibitor"
+        
+    ],
+    "modules-center": [
+        "custom/weather",
+        "clock#date",
+        "custom/pacman"
+    ],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "custom/storage",
+        "temperature",
+        "network",
+        "wireplumber",
+        "tray",
+        "custom/wallpaper",
+        "custom/notification",
+        "custom/power"
+    ],
+
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+   "custom/rofi": {
+        "format": " ",
+        "tooltip": false,
+        //"on-click-right": "nwg-drawer",
+        "on-click": "sleep 0.1 && bash $HOME/.config/rofi/launchers/type-3/launcher.sh",
+        //"on-click-middle": "pkill -9 wofi"
+    },
+
+    "battery": {
+        "interval": 2,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 5
+        },
+        "format": "{icon}  {capacity}%",
+        /*"format-charging": "<span foreground='#B8BB26'></span> {capacity}%",*/
+        "format-plugged": "<span foreground='#3C3836'></span> {capacity}%",
+        "format-icons": {
+          "default": [
+            "<span foreground='#FB4934'></span/",
+            "<span foreground='#EA6631'></span>",
+            "<span foreground='#DA822D'></span>",
+            "<span foreground='#C99F2A'></span>",
+            "<span foreground='#B8BB26'></span>"
+        ],
+        "format-charging": [
+          "", 
+          "", 
+          "", 
+          "", 
+          ""
+        ]
+      }
+    },
+
+
+    "temperature": {
+        // "thermal-zone": 1,
+        "interval": 30,
+        //"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": " {temperatureC}°C",
+        "format-critical": "  {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+          "<span foreground='#15161E'></span>",
+          "<span foreground='#15161E'></span>",
+          "<span foreground='#15161E'></span>",
+          "<span foreground='#15161E'></span>"
+        ],
+        "max-length": 7,
+        "min-length": 7,
+        "on-click": "xsensors"
+    },
+
+    "memory": {
+        "interval": 30,
+       /* "format": "  {used:0.2f} / {total:0.0f} GB",*/
+       "format": "  {used}GB",
+       "on-click": "kitty -e btm"
+    },
+
+    "network": {
+        "format-wifi": "<span foreground='#15161E'> </span> {essid}",
+        //"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": " {ifname}",
+        "format-linked": "{ifname} (No IP) ",
+        "format": "",
+        "format-disconnected": "<span foreground='#15161E'>󰖪 </span>Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        //"on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+        "on-click":"sleep 0.1 && bash ~/.config/rofi/rofi-wifi-menu.sh",
+        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
+        "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
+        "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
+        "interval": 10
+    },
+    
+    "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      "<span foreground='#15161E'>󰃞</span>",
+      "<span foreground='#15161E'>󰃟</span>",
+      "<span foreground='#15161E'>󰃠</span>"
+    ]
+},
+
+    "custom/storage": {
+        "format": "{icon}  {percentage}%",
+        "format-alt": "  {percentage}%",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh",
+        "format": "  {percentage}%",
+        "on-click": "kitty 'df -h'"
+    },
+
+    "custom/screenshot": {
+        "format": "󰹑",
+        "on-click": "sleep 0.1 && grim",
+        "tooltip-format": "Screenshot"
+    },
+
+    "custom/color": {
+        "format": "",
+        "on-click": "sleep 0.1 && hyprpicker -a",
+        "tooltip-format": "Color picker"
+    },
+
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": "true"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 7200,
+        "tooltip-format": "Outdoor temperature",
+        "exec": "curl -s 'https://wttr.in/?format=1' | tr -s ' '",
+        "exec-if": "ping wttr.in -c1"
+    },
+    "custom/pacman": {
+        "format": "<span foreground='#E0AF68'>📦</span> {}",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "kitty -e 'paru'; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8,
+        "max-length": 8,
+        "min-length": 3
+    },
+
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 50,      
+        "format-icons": {
+        "spotify_player": "<span foreground='#9ECE6A'></span> ",
+        "default": "<span foreground='#BB9AF7'>🎵</span> "
+        },
+        "on-click-right":"playerctl --player=spotify_player play-pause",
+        "on-click":"playerctl --player=mpd play-pause",
+        "on-scroll-up":"playerctl --player=mpd previous",
+        "on-scroll-down":"playerctl --player=mpd next",
+        "escape": true,
+        "exec-if": "pgrep spotify_player",
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder                    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name                                                                                                               
+},
+
+    "custom/power": {
+        "format": "🛑",
+        "tooltip": true,
+        "tooltip-format": "Power",
+        "on-click": "sleep 0.1 && bash $HOME/.config/rofi/powermenu/type-4/powermenu.sh"
+    },
+
+    "clock#date": {
+        "format": "<span foreground='#9ECE6A'>🕓</span> {:%H:%M  <span foreground='#9ECE6A'>🗓️</span> %e %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "today-format": "<b>{}</b>"
+    },
+
+    "custom/gammastep": {
+      "interval": 5,
+      "return-type": "json",
+      "exec": {
+        "pre": "if unit_status=\"$(systemctl --user is-active gammastep)\"; then\nstatus=\"$unit_status ($(journalctl --user -u gammastep.service -g 'Period: ' | tail -1 | cut -d ':' -f6 | xargs))\"\nelse\nstatus=\"$unit_status\"\nfi",
+        "alt": "${status:-inactive}",
+        "tooltip": "Gammastep is $status"
+      },
+      "format": "{icon}",
+      "format-icons": {
+        "activating": "󰁪 ",
+        "deactivating": "󰁪 ",
+        "inactive": "? ",
+        "active (Night)": " ",
+        "active (Nighttime)": " ",
+        "active (Transition (Night)": " ",
+        "active (Transition (Nighttime)": " ",
+        "active (Day)": " ",
+        "active (Daytime)": " ",
+        "active (Transition (Day)": " ",
+        "active (Transition (Daytime)": " "
+      },
+      "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep"
+    },
+
+    "cpu": {
+        "interval": 1,
+/*        "format": " {}%", // Icon: microchip*/
+        "format": "  {usage}%",
+        "max-length": 10,
+        "min-length": 8,
+        "on-click": "kitty -e btm"
+    },
+
+    "mpd": {
+        "max-length": 70,
+        "format": "<span foreground='#D3869B'></span> {artist} - {title} [{album}]",
+        "format-paused": "<span foreground='#FB4934'></span> {title}",
+        "format-stopped": "<span foreground='#FABD2F'></span>",
+        "format-disconnected": "",
+        "on-click": "mpc --quiet toggle",
+        "on-click-right": "kitty mpc update; mpc ls | mpc add",
+        "on-click-middle": "kitty -e ncmpcpp",
+        "on-scroll-up": "mpc --quiet prev",
+        "on-scroll-down": "mpc --quiet next",
+        "smooth-scrolling-threshold": 1,
+        "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+    },
+
+    "custom/title": {
+        "format": "{}",
+        "interval": 0,
+        "return-type": "json",
+        //"max-length": 35,
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": " ",
+            "urgent": " "
+        //Circle style   
+        //Pacman style 󰮯  󱙝
+
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false,
+	"persistent-workspaces": {
+		"*":4
+	}
+    },
+
+    "hyprland/window": {
+        "max-length": 100,
+        "separate-outputs": true
+    },
+
+    "pulseaudio": {
+        "scroll-step": 3, // %, can be a float
+        "format": "{icon}  {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        //"format-source": "{volume}% ",
+        //"format-source-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "sleep 0.1 && pavucontrol",
+        "on-click-right": "amixer sset Master toggle"
+    },
+
+    "wireplumber": {
+        "on-click": "sleep 0.1 && pavucontrol",
+        "on-click-right": "amixer sset Master toggle 1>/dev/null",
+        //on-click: "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        //on-scroll-down: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04+";
+        //on-scroll-up: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04-";
+        "format": "{icon} {volume}%",
+        "format-muted": "<span foreground='#15161E'>󰖁 </span>Mute",
+        "format-source": "",
+        "format-source-muted": " ",
+        //"format-muted": "<span foreground='#fab387'> </span>",
+        //"format-icons": [ "<span foreground='#fab387'></span>" ]
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+              "<span foreground='#15161E'> </span>",
+              "<span foreground='#15161E'> </span>", 
+              "<span foreground='#15161E'> </span>",
+              "<span foreground='#15161E'> </span>",
+              "<span foreground='#15161E'> </span>"
+            ]
+        },
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 5
+    },
+    "custom/wallpaper": {
+      "format": "🎨",
+      "on-click": "sleep 0.1 && waypaper-engine next-image"
+    },
+
+    "custom/notification": {
+    "format":"🔔",
+    "on-click": "sleep 0.1 && swaync-client -rs && swaync-client -t",
+    "tooltip-format": "Notifications"
+    }
+}
