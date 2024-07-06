@@ -1,4 +1,4 @@
-# Collection of my Hyprland setups as featured on r/unixporn.
+# Collection of my Hyprland rices as featured on r/unixporn 🍚
 
 ## Nordic ❄️
 ![nordic](nordic/1.png)
