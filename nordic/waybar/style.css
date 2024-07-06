@@ -29,7 +29,7 @@
     border-top: 3px transparent;
     border-radius: 0px;
     margin: 0px 0px;
-}
+  }
 
 window#waybar.hidden {
   opacity: 0.2;
@@ -111,18 +111,21 @@ window#waybar.hidden {
   background-color: #3B4252;
   border-radius: 0px;
   padding: 0px 10px;
+  border: 1px solid #A9B1D6;
 }
 
 #cpu {
   background-color: #3B4252;
   color: #ECEFF4;
   padding: 10px 10px;
+  border: 1px solid #A9B1D6;
 }
 
 #memory {
   background-color: #3B4252;
   color: #ECEFF4;
   padding: 10px 10px;
+  border: 1px solid #A9B1D6; 
 }
 
 #custom-power {
@@ -258,6 +261,7 @@ label:focus {
   background-color: #3B4252;
   color: #ECEFF4;
   padding: 10px 10px;;
+  border: 1px solid #A9B1D6;
 }
 
 #custom-pacman {
@@ -278,6 +282,7 @@ label:focus {
 #network {
   background-color: #3B4252;
   color: #ECEFF4;
+  border: 1px solid #A9B1D6; 
 }
 
 #network.disconnected {
@@ -289,6 +294,7 @@ label:focus {
   background-color: #3B4252;
   color: #ECEFF4;
   min-width: 100px;
+  border: 1px solid #A9B1D6;
 }
 
 #custom-media.custom-spotify {
@@ -304,6 +310,7 @@ label:focus {
   background-color: #3B4252;
   color: #ECEFF4;
   padding: 10px 10px;
+  border: 1px solid #A9B1D6;
 }
 
 #temperature.critical {
@@ -376,6 +383,7 @@ label:focus {
     background-color: #3B4252;
     color: #ECEFF4;
     padding: 10px 10px;
+    border: 1px solid #A9B1D6;
 }
 #custom-screenshot{
 background-color: #665C54;

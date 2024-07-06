@@ -210,7 +210,7 @@
     },
 
     "clock#date": {
-        "format": "<span foreground='#88C0D0'></span>  {:%H:%M  <span foreground='#88C0D0'></span> %e %b}",
+        "format": "<span foreground='#EBCB8B'></span>  {:%H:%M  <span foreground='#EBCB8B'></span> %e %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "today-format": "<b>{}</b>"
     },
