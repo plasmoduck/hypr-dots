@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+rofi_command="rofi -theme $HOME/.config/rofi/powermenu.rasi"
+
+uptime=$(uptime -p | sed -e 's/up //g')
+
+# Options
+if [[ "$DIR" == "powermenus" ]]; then
+	shutdown=""
+	reboot=""
+	lock=""
+	suspend=""
+	logout=""
+	ddir="$HOME/.config/rofi/config"
+else
+	# Buttons
+	layout=`cat $HOME/.config/rofi/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
+	if [[ "$layout" == "TRUE" ]]; then
+		shutdown="󰐥"
+		reboot="󰜉"
+		lock="󰌾"
+		suspend="󰤄"
+		logout="󰍃"
+	else
+		shutdown=" Shutdown"
+		reboot=" Restart"
+		lock=" Lock"
+		suspend=" Sleep"
+		logout=" Logout"
+	fi
+	ddir="$HOME/.config/rofi/config"
+fi
+
+# Variable passed to rofi
+options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+
+chosen="$(echo -e "$options" | $rofi_command -p "UP - $uptime" -dmenu -selected-row 0)"
+case $chosen in
+    $shutdown)
+		systemctl poweroff
+        ;;
+    $reboot)
+		systemctl reboot
+        ;;
+    $lock)
+        gtklock
+        ;;
+    $suspend)
+		swaylock -f
+		systemctl suspend
+        ;;
+    $logout)
+		hyprctl dispatch exit 0
+        ;;
+esac
