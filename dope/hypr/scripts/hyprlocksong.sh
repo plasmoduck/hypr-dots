@@ -1,6 +1,13 @@
 #!/bin/bash
+spotify=$(playerctl -p spotify_player status)
+mpd=$(playerctl -p mpd status)
 
-song_info=$(playerctl metadata --format '  {{artist}} - {{title}}')
+if test $spotify == Playing; then
+  song_info="<span foreground='#89B482'></span> $(playerctl -p spotify_player metadata --format '  {{artist}} - {{title}}')"
+elif test $mpd == Playing; then
+  song_info="<span foreground='#D3869B'>󰋋</span> $(playerctl -p mpd metadata --format '  {{artist}} - {{title}}')"
+else song_info=""
+fi
 
-echo "<span foreground='#89B482'></span> $song_info" 
+echo "$song_info" 
 
