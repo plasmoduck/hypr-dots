@@ -1,0 +1,435 @@
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "Terminess Nerd Font";
+  font-size: 11pt;
+  font-weight: 900;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  padding:0px;
+  margin: 0px;
+  border-radius: 0px; 
+}
+
+/* Reset all styles */
+* {
+    border-radius: 0px;
+    border: none;
+    min-height: 0;
+  /*  margin: 0.2em 0.3em 0.2em 0.3em;*/
+    margin: 0px 2px;
+}
+
+/* The whole bar */
+#waybar { 
+    /*background-color: rgba(50, 48, 47, 1);*/
+    background-color: rgba(53, 50, 49, 1);
+   /* background-color: #353231;*/
+    color: #353231;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-top: 3px transparent;
+    border-radius: 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0 0px;
+  color: #D4BE98;
+  background-color: transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 3px transparent;
+  /* Avoid rounded borders under each workspace name */
+  border: none;
+  border-radius: 0px;
+}
+
+#workspaces button.focused {
+  background-color: transparent;
+}
+#workspace button.hover {
+  background-color: transparent;
+}
+#workspaces button.active {
+  color: #A9B665;
+  border-bottom: 2px solid #EA6962;
+}
+
+#workspaces button.urgent {
+  color: #EA6962;
+}
+
+#window {
+  /* border-radius: 20px; */ 
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  color: #A9B665;
+}
+
+/* Each module */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#custom_screenshot,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd,
+#bluetooth,
+#custom-power,
+#custom-spotify,
+#custom-weather,
+#custom-weather.severe,
+#custom-weather.sunnyDay,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.default,
+#custom-rofi,
+#window,
+#custom-notification {
+  padding-left: 12px; 
+  padding-right: 15px;
+  color: #EA6962;
+  border-radius: 30px;
+  margin: 3px;
+  border: 3px solid #433E3B;
+  background-color: #353231;
+}
+
+#workspaces {
+  border-radius: 30px 30px 0px 0px;
+  padding: 0px 10px;
+  margin: 3px;
+/*  background-color: #433E3B;*/
+  border: 2px solid #665C54;
+  background-image: linear-gradient(to right, rgba(102, 92, 84, 0.2), rgba(102, 92, 84, 0.5));
+}
+
+#cpu {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 30px 0px;
+  margin: 3px;
+}
+
+#memory {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 30px 0px;
+  margin: 3px;
+}
+
+#custom-power {
+  background-color: #353231;
+  color: #EA6962;
+}
+
+#custom-rofi {
+  /*background-color: rgba(20, 27, 30, 0.7); */
+  background-color: #353231;
+  color: #D4BE98;
+  font-size: 15px;
+  /*background-image: url("/home/cjg/Pictures/spawn-logo.png");*/
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 30px 0px;
+  border: 2px solid #433E3B;
+  margin: 3px;
+}
+
+tooltip,
+#clock.calendar,
+#clock tooltip,
+#clock > tooltip,
+#clock {
+    background: rgba(50, 48, 47, 0.9);
+}
+
+#custom-weather {
+  color: #FBF1C7;
+  background-color: #353231;
+  border-radius: 30px 0px;
+  margin: 3px;
+}
+
+#custom-weather.severe {
+  color: #eb937d;
+}
+
+#custom-weather.sunnyDay {
+  color: #c2ca76;
+}
+
+#custom-weather.clearNight {
+  color: #cad3f5;
+  background-color: #353231;
+}
+
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight {
+  color: #c2ddda;
+  background-color: #353231;
+}
+
+#custom-weather.rainyDay,
+#custom-weather.rainyNight {
+  color: #5aaca5;
+  background-color: #353231;
+}
+
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight {
+  color: #d6e7e5;
+  background-color: #353231
+}
+
+#custom-weather.default {
+  color: #FBF1C7;
+  background-color: #353231;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#pulseaudio {
+  color: #7d9bba;
+}
+
+#clock {
+  color: #D4BE98;
+  /*background-color: #433E3B;*/
+  background-image: linear-gradient(to right, rgba(102, 92, 84, 0.2), rgba(102, 92, 84, 0.5));
+  border-radius: 0px 30px;
+  margin: 3px;
+  border: 2px solid #665C54;
+}
+
+#battery {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 0px 30px;
+  margin: 3px;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+  color: #353231;
+  background-color: #353231; 
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slide {
+  to {
+    color: #A9B665;
+  }
+}
+
+@keyframes blink {
+  to {
+    color: #EA6962;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: #353231;
+  color: #353231;
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#custom-storage {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 30px 0px;
+  margin: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #433E3B;
+}
+
+#custom-pacman {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 30px 0px;
+  margin: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 2px solid #433E3B;
+}
+
+#bluetooth {
+  color: #707d9d;
+}
+
+#bluetooth.disconnected {
+  color: #EA6962;
+}
+
+#network {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 0px 30px;
+  margin: 3px;
+}
+
+#network.disconnected {
+ background-color: #EA6962;
+ color: #353231;
+}
+
+#custom-media {
+/*  background-color: #433E3B; */
+  color: #D4BE98;
+  min-width: 100px;
+  border-radius: 0px 30px;
+  /*background-image: linear-gradient(to right, rgba(102, 92, 84, 0.2), rgba(102, 92, 84, 0.5));*/
+  margin: 3px;
+  border: 2px solid #665C54;
+                                                                                                                         
+  background: linear-gradient(to right, #353231, #353231, #7DAEA3, #3B3735, #353231);
+	background-size: 400% 400%;
+	animation: gradient 40s ease infinite;
+}	
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#custom-media.custom-spotify {
+  color: #8ccf7e;
+  background-color: #353231;
+}
+
+#custom-media.custom-vlc {
+  background-color: #ffa000;
+}
+
+#temperature {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 30px 0px;
+  margin: 3px;
+}
+
+#temperature.critical {
+  background-color: #EA6962;
+}
+
+#tray {
+  background-color: #353231;
+}
+
+#tray > .passive {
+ -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
+
+#backlight {
+  background-color: #353231;
+  color: #D4BE98;
+  border-radius: 0px 30px;
+  margin: 3px;
+}
+
+#idle_inhibitor {
+  background-color: #353231;
+  color: #FBF1C7;
+}
+
+#idle_inhibitor.activated {
+  background-color: #FBF1C7;
+  color: #2d3436;
+}
+
+#language {
+  background: #00b093;
+  color: #740864;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 110px;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  padding: 0 0px;
+  margin: 0 5px;
+  min-width: 110px;
+}
+
+#keyboard-state > label {
+  padding: 0 0px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+#wireplumber{
+    background-color: #353231;
+    color: #D4BE98;
+    border-radius: 0px 30px;
+    margin: 3px;
+}
+
+window#waybar .horizontal{
+padding: 2px;
+}
+window#waybar {
+  border-radius: 30px 30px 0px 0px; 
+  border: 2px solid #433E3B;
+}
+custom-spotify{
+/*background-color: #232a2d;*/
+  color: #8ccf7e;
+  padding-left: 10px;
+  padding-right: 15px
+}

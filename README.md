@@ -1,5 +1,8 @@
 # Collection of my Hyprland rices as featured on r/unixporn 🍚
 
+## Yggdrasil 🌳
+![yggdrasil](yggdrasil/1.png)
+
 ## Nordic ❄️
 ![nordic](nordic/1.png)
 
