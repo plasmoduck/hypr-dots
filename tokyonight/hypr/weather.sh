@@ -3,7 +3,7 @@
 # Function to fetch "feels like" temperature for a given city ID
 get_feels_like_temperature() {
     city_id=$1
-    api_key="9f815d625b1fa077b8d8f70bdfb0c205"  # Your actual API key from OpenWeatherMap
+    api_key="<insert your API key>"  # Your actual API key from OpenWeatherMap
     url="http://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric"
 
     # Fetch data from API
